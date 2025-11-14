@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "pyproject-toml"
+version = "0.1.0"
+description = ""
+authors = ["Alexsandr Varenyshev <warrn11@mail.ru>"]
+readme = "README.md"
+packages = [{include = "pyproject"}]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^9.0.1"
+pytest-cov = "^7.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
