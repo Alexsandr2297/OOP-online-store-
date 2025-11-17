@@ -5,13 +5,13 @@ class Category:
     products: list  # список товаров продуктов
 
     # Переменная на уровне класса для подсчета количества категорий и товаров
-    number_of_categories = 0  # количество категорий
-    number_of_products = 0  # количество товаров
+    count_category = 0  # количество категорий
+    count_product = 0  # количество товаров
 
     def __init__(self, name, description, products):
         """Метод, который инициализирует экземпляры класса."""
         self.name = name
         self.description = description
         self.products = products
-        self.number_of_categories += 1
-        self.number_of_products += len(self.products)
+        Category.count_category += 1
+        Category.count_product += len(self.products)
