@@ -18,5 +18,5 @@ def test_init(category):
     assert category.name == 'Смартфоны'
     assert category.description == '256GB, Серый цвет, 200MP камера'
     assert len(category.products) == 3
-    assert category.number_of_categories == 1
-    assert category.number_of_products == 3
+    assert category.count_category == 1
+    assert category.count_product == 3
