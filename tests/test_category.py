@@ -20,3 +20,15 @@ def test_init(category):
     assert len(category.products) == 3
     assert category.count_category == 1
     assert category.count_product == 3
+
+
+def test_add_product(category):
+    count = len(category.products)  # = 3
+    total = Category.count_product  # = 3
+
+    new_product = Product('Honor', 'Смартфоны, как средство не только коммуникации, но и получение дополнительных '
+                        'функций для удобства жизни', 26699, 1)
+    category.add_product(new_product)
+    assert len(category.products) == count + 1  # = 4
+    assert category.products[-1] == new_product
+    assert Category.count_product == total + 1  # = 4
