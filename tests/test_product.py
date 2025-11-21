@@ -5,15 +5,11 @@ from src.product import Product
 
 @pytest.fixture()
 def product():
-    return Product('Samsung Galaxy C25 Ultra',
-                   'Смартфоны, как средство не только коммуникации, но и получение дополнительных '
-                   'функций для удобства жизни',
-                   54.980, 3)
+    return Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
 
 
 def test_init(product):
-    assert product.name == 'Samsung Galaxy C25 Ultra'
-    assert product.description == ('Смартфоны, как средство не только коммуникации, но и получение дополнительных '
-                                   'функций для удобства жизни')
-    assert product.price == 54.980
-    assert product.quantity == 3
+    assert product.name == "Samsung Galaxy S23 Ultra"
+    assert product.description == "256GB, Серый цвет, 200MP камера"
+    assert product.price == 180000.0
+    assert product.quantity == 5

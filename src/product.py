@@ -11,3 +11,6 @@ class Product:
         self.description = description
         self.price = price
         self.quantity = quantity
+
+    def __repr__(self):
+        return f"{self.name}, {self.price} руб. (Остаток: {self.quantity} шт.)"
