@@ -18,18 +18,24 @@ def test_init(category):
     assert category.name == 'Смартфоны'
     assert category.description == ('Смартфоны, как средство не только коммуникации, '
                                     'но и получения дополнительных функций для удобства жизни')
-    assert len(category.products) == 3
+    assert len(category.list_prod) == 3
     assert category.category_count == 1
     assert category.product_count == 3
 
 
 def test_add_product(category):
-    count = len(category.products)  # = 3
+    count = len(category.list_prod)  # = 3
     total = Category.product_count  # = 3
 
     new_product = Product('Honor', 'Смартфоны, как средство не только коммуникации, но и получение дополнительных '
                                    'функций для удобства жизни', 26699, 1)
     category.add_product(new_product)
-    assert len(category.products) == count + 1  # = 4
-    assert category.products[-1] == new_product
+    assert len(category.list_prod) == count + 1  # = 4
+    assert category.list_prod[-1] == new_product
     assert Category.product_count == total + 1  # = 4
+
+
+def test_products(category):
+    assert category.products == ('Samsung Galaxy S23 Ultra, 180000.0 руб. (Остаток: 5 шт.)\n'
+                                 'Iphone 15, 210000.0 руб. (Остаток: 8 шт.)\n'
+                                 'Xiaomi Redmi Note 11, 31000.0 руб. (Остаток: 14 шт.)\n')
