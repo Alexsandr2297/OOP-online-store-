@@ -36,6 +36,10 @@ def test_add_product(category):
 
 
 def test_products(category):
-    assert category.products == ('Samsung Galaxy S23 Ultra, 180000.0 руб. (Остаток: 5 шт.)\n'
-                                 'Iphone 15, 210000.0 руб. (Остаток: 8 шт.)\n'
-                                 'Xiaomi Redmi Note 11, 31000.0 руб. (Остаток: 14 шт.)\n')
+    assert category.products == ('Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт.\n'
+                                 'Iphone 15, 210000.0 руб. Остаток: 8 шт.\n'
+                                 'Xiaomi Redmi Note 11, 31000.0 руб. Остаток: 14 шт.\n')
+
+
+def test__str__(category):
+    assert str(category) == "Смартфоны, количество продуктов: 27 шт."

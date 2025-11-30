@@ -44,16 +44,8 @@ class Product:
                 return
         self.__price = new_price
 
-# if __name__ == "__main__":
-#     new = Product('fcdf', 'fdf', 4, 1)
-#     print(new.name)
-#     print(new.description)
-#     print(new.price)
-#     print(new.quantity)
-#
-#     i = Product.new_product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
-#
-#     print(i.name)
-#     print(i.description)
-#     print(i.price)
-#     print(i.quantity)
+    def __str__(self):
+        return f"{self.name}, {self.price} руб. Остаток: {self.quantity}шт."
+
+    def __add__(self, other):
+        return (self.price * self.quantity) + (other.price * other.quantity)
