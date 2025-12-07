@@ -43,3 +43,11 @@ def test_products(category):
 
 def test__str__(category):
     assert str(category) == "Смартфоны, количество продуктов: 27 шт."
+
+
+def test_add_product_error(category):
+    with pytest.raises(TypeError) as f:
+        category.add_product(123)
+
+    # Проверяем сообщение об ошибке
+    assert "Можно добавлять только экземпляры класса Product" in str(f.value)
