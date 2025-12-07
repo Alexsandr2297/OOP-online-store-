@@ -59,3 +59,7 @@ def test__add__():
     assert product1 + product2 == 2580000.0
     assert product1 + product3 == 1334000.0
     assert product2 + product3 == 2114000.0
+
+    # Тест ошибок
+    with pytest.raises(TypeError):
+        product1 + 100

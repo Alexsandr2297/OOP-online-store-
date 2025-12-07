@@ -1,3 +1,6 @@
+from src.product import Product
+
+
 class Category:
     """Класс для категорий"""
     name: str  # название
@@ -18,11 +21,15 @@ class Category:
 
     def add_product(self, product):
         """Добавляет продукт в категорию и увеличивает счетчик"""
-        Category.product_count += 1
-        self.__products.append(product)
+        if isinstance(product, Product):
+            Category.product_count += 1
+            self.__products.append(product)
+        else:
+            raise TypeError("Можно добавлять только экземпляры класса Product")
 
     @property
     def products(self):
+        """Возвращает список строк с информацией о продуктах в категории."""
         products_str = ""
         for product in self.__products:
             products_str += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
@@ -30,9 +37,11 @@ class Category:
 
     @property
     def list_prod(self):
+        """Возвращает исходный список товаров в категории"""
         return self.__products
 
     def __str__(self):
+        """"Возвращает строковое представление категории."""
         total = 0
         for i in self.__products:
             total += i.quantity

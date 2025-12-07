@@ -1,16 +1,21 @@
-from src.category import Category
-from src.product import Product
+# from src.category import Category
+# from src.product import Product
 
 
 class CategoryIterator:
+    """Класс итератор"""
+
     def __init__(self, category):
+        """Конструктор для итератора"""
         self.products = category.list_prod
         self.index = 0
 
     def __iter__(self):
+        """Возвращает сам итератор."""
         return self
 
     def __next__(self):
+        """Возвращает следующий продукт в списке."""
         if self.index < len(self.products):
             products = self.products[self.index]
             self.index += 1
