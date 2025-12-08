@@ -12,10 +12,12 @@ class CategoryIterator:
 
     def __iter__(self):
         """Возвращает сам итератор."""
+
         return self
 
     def __next__(self):
         """Возвращает следующий продукт в списке."""
+
         if self.index < len(self.products):
             products = self.products[self.index]
             self.index += 1

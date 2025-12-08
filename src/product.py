@@ -1,5 +1,6 @@
 class Product:
     """Класс продукта"""
+
     name: str  # название
     description: str  # описание
     price: float  # цена
@@ -7,6 +8,7 @@ class Product:
 
     def __init__(self, name, description, price, quantity):
         """Метод, который инициализирует экземпляры класса."""
+
         self.name = name
         self.description = description
         self.__price = price
@@ -15,6 +17,7 @@ class Product:
     @classmethod
     def new_product(cls, product_info, product_list):
         """Создает новый товар или обновляет существующий."""
+
         name = product_info.get('name')
         description = product_info.get('description')
         price = product_info.get('price')
@@ -32,11 +35,13 @@ class Product:
     @property
     def price(self):
         """Получает цену товара."""
+
         return self.__price
 
     @price.setter
     def price(self, new_price):
         """Устанавливает новую цену товара с проверками."""
+
         if new_price <= 0:
             print("Цена не должна быть нулевая или отрицательная")
             return
@@ -49,10 +54,12 @@ class Product:
 
     def __str__(self):
         """Возвращает строковое представление продукта."""
+
         return f"{self.name}, {self.price} руб. Остаток: {self.quantity}шт."
 
     def __add__(self, other):
         """Сложение двух продуктов по цене и количеству, если оба продукта одного класса"""
-        if type(other) is Product:
+
+        if type(self) is type(other):
             return (self.price * self.quantity) + (other.price * other.quantity)
-        raise TypeError("Можно складывать только экземпляры класса Product")
+        raise TypeError(f"Нельзя складывать продукты разных классов: {type(self).__name__} и {type(other).__name__}")

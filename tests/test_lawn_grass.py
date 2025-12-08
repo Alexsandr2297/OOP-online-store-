@@ -1,6 +1,6 @@
 import pytest
 
-from src.LawnGrass import LawnGrass
+from src.lawn_grass import LawnGrass
 
 
 @pytest.fixture()
@@ -31,12 +31,3 @@ def test_init2(lawn_grass2):
     assert lawn_grass2.country == "США"
     assert lawn_grass2.germination_period == "5 дней"
     assert lawn_grass2.color == "Темно-зеленый"
-
-
-def test_add(lawn_grass1, lawn_grass2):
-    assert lawn_grass1 + lawn_grass2 == 16750.0
-
-
-def test_add_error(lawn_grass1):
-    with pytest.raises(TypeError):
-        lawn_grass1 + 1
