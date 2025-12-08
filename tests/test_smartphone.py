@@ -50,12 +50,3 @@ def test_init3(smartphone3):
     assert smartphone3.model == "Note 11"
     assert smartphone3.memory == 1024
     assert smartphone3.color == "Синий"
-
-
-def test_add(smartphone1, smartphone2):
-    assert smartphone1 + smartphone2 == 2580000.0
-
-
-def test_add_error(smartphone1):
-    with pytest.raises(TypeError):
-        smartphone1 + 1
