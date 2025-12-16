@@ -14,6 +14,11 @@ def category():
                      'но и получения дополнительных функций для удобства жизни'), products)
 
 
+@pytest.fixture()
+def empty_category():
+    return Category("Пустая категория", "Категория без продуктов", [])
+
+
 def test_init(category):
     assert category.name == 'Смартфоны'
     assert category.description == ('Смартфоны, как средство не только коммуникации, '
@@ -51,3 +56,8 @@ def test_add_product_error(category):
 
     # Проверяем сообщение об ошибке
     assert "Можно добавлять только экземпляры класса Product" in str(f.value)
+
+
+def test_middle_price(category, empty_category):
+    assert category.middle_price() == 140333
+    assert empty_category.middle_price() == 0.0
